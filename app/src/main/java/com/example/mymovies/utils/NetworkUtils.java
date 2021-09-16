@@ -17,7 +17,7 @@ import java.util.concurrent.ExecutionException;
 
 public class NetworkUtils {
 
-    private static final String BASE_URL = "https://api.themoviedb.org/3/discover/movie";
+    private static final String BASE_URL = "https://api.themoviedb.org/3/discover/movie/";
 
     private static final String API_KEY = "d4a6d12168a6687e7c5cf4533b5b79e5";
     private static final String LANGUAGE_VALUE = "ru-RU";

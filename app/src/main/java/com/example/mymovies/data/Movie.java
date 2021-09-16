@@ -1,6 +1,12 @@
 package com.example.mymovies.data;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "movies")
 public class Movie {
+
+    @PrimaryKey
     private int id;
     private int vote_count;
     private String title;
@@ -10,17 +16,27 @@ public class Movie {
     private String backdropPath;
     private double vote_average;
     private String releaseDate;
+    private String bigPosterPath;
 
-    public Movie(int id, int vote_count, String title, String original_title, String overview, String posterPath, String backdropPath, double vote_average, String releaseDate) {
+    public Movie(int id, int vote_count, String title, String original_title, String overview, String posterPath,String bigPosterPath, String backdropPath, double vote_average, String releaseDate) {
         this.id = id;
         this.vote_count = vote_count;
         this.title = title;
         this.original_title = original_title;
         this.overview = overview;
         this.posterPath = posterPath;
+        this.bigPosterPath = bigPosterPath;
         this.backdropPath = backdropPath;
         this.vote_average = vote_average;
         this.releaseDate = releaseDate;
+    }
+
+    public String getBigPosterPath() {
+        return bigPosterPath;
+    }
+
+    public void setBigPosterPath(String bigPosterPath) {
+        this.bigPosterPath = bigPosterPath;
     }
 
     public int getId() {
