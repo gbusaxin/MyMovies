@@ -13,8 +13,14 @@ public interface MoviesDao {
     @Query("SELECT * FROM movies")
     LiveData<List<Movie>> getAllMovies();
 
+    @Query("SELECT * FROM movies")
+    LiveData<List<FavouriteMovie>> getAllFavouriteMovies();
+
     @Query("SELECT * FROM movies WHERE id == :id")
     Movie getMovieById(int id);
+
+    @Query("SELECT * FROM favourite_movies WHERE id == :id")
+    FavouriteMovie getFavouriteMovieById(int id);
 
     @Query("DELETE FROM movies")
     void deleteAllMovies();
@@ -24,5 +30,11 @@ public interface MoviesDao {
 
     @Delete
     void deleteMovie(Movie movie);
+
+    @Insert
+    void insertFavouriteMovie(FavouriteMovie movie);
+
+    @Delete
+    void deleteFavouriteMovie(FavouriteMovie movie);
 
 }

@@ -119,5 +119,16 @@
             android:text="TextView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewLabelDescription" />
+
+        <Button
+            android:id="@+id/buttonAddToFavourite"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="добавить в избранное"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewOverView"
+            android:onClick="onClickChangeFavourite"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
