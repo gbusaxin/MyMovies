@@ -1,4 +1,4 @@
-package com.example.mymovies;
+package com.example.mymovies.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.mymovies.R;
 import com.example.mymovies.data.Movie;
 import com.squareup.picasso.Picasso;
 
@@ -33,7 +34,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
     @Override
     public void onBindViewHolder(@NonNull MovieViewHolder holder, int position) {
-        if (position > movies.size() - 4  && onReachEndListener != null){
+        if (movies.size() >= 20 && position > movies.size() - 4  && onReachEndListener != null){
             onReachEndListener.onReachEnd();
         }
         Movie movie = movies.get(position);
@@ -46,11 +47,16 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         return movies.size();
     }
 
-    interface OnPosterClickListener{
+    public void clear(){
+        this.movies.clear();
+        notifyDataSetChanged();
+    }
+
+    public interface OnPosterClickListener{
         void onPosterClick(int position);
     }
 
-    interface OnReachEndListener{
+    public interface OnReachEndListener{
         void onReachEnd();
     }
 
