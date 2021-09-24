@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyMovies</string>
+    <string name="poster_for_film">Poster for movie</string>
+    <string name="most_popular">Most popular</string>
+    <string name="more_rated">Most rated</string>
+    <string name="play_trailer">Trailer</string>
+    <string name="name_of_movie">"Name: "</string>
+    <string name="textview">TextView</string>
+    <string name="original_name_of_movie">Original name:</string>
+    <string name="rating">"Rating: "</string>
+    <string name="date_of_release">"Release date: "</string>
+    <string name="description">Description</string>
+    <string name="image">Image</string>
+    <string name="add_to_favourite">add to favourite</string>
+    <string name="main">Main</string>
+    <string name="favourite">Favourite</string>
+</resources>

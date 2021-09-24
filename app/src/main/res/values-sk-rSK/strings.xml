@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyMovies</string>
+    <string name="poster_for_film">Filmový plagát</string>
+    <string name="most_popular">Najpopulárnejší</string>
+    <string name="more_rated">Najviac hodnotené</string>
+    <string name="play_trailer">Príves</string>
+    <string name="name_of_movie">Názov</string>
+    <string name="textview">TextView</string>
+    <string name="original_name_of_movie">Pôvodný názov</string>
+    <string name="rating">Hodnotenie</string>
+    <string name="date_of_release">Dátum vydania</string>
+    <string name="description">Popis</string>
+    <string name="image">Image</string>
+    <string name="add_to_favourite">Do obľúbených</string>
+    <string name="main">Hlavná</string>
+    <string name="favourite">Obľúbené</string>
+</resources>

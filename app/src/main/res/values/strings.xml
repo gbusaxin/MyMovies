@@ -3,5 +3,15 @@
     <string name="poster_for_film">Постер к фильму</string>
     <string name="most_popular">Самые популярные</string>
     <string name="more_rated">Наиболее рейтинговые</string>
-    <string name="play_trailer">Play trailer</string>
+    <string name="play_trailer">Трейлер</string>
+    <string name="name_of_movie">Название:</string>
+    <string name="textview">TextView</string>
+    <string name="original_name_of_movie">Оригинальное название:</string>
+    <string name="rating">Рейтинг:</string>
+    <string name="date_of_release">Дата выхода:</string>
+    <string name="description">Описание:</string>
+    <string name="image">Image</string>
+    <string name="add_to_favourite">добавить в избранное</string>
+    <string name="main">Главная</string>
+    <string name="favourite">Избранное</string>
 </resources>

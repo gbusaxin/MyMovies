@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +33,7 @@ import com.squareup.picasso.Picasso;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class DetailActivity extends AppCompatActivity {
 
@@ -42,6 +44,7 @@ public class DetailActivity extends AppCompatActivity {
     private TextView textViewReleaseDate;
     private TextView textViewOverview;
     private Button buttonAddToFavourite;
+    private ScrollView scrollViewInfo;
 
     private RecyclerView recyclerViewTrailers;
     private RecyclerView recyclerViewReviews;
@@ -54,10 +57,13 @@ public class DetailActivity extends AppCompatActivity {
     private MainViewModel viewModel;
     private FavouriteMovie favouriteMovie;
 
+    private String language;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
+        language = Locale.getDefault().getLanguage();
         init();
         Intent intent = getIntent();
         if (intent!= null && intent.hasExtra("id")){
@@ -69,7 +75,7 @@ public class DetailActivity extends AppCompatActivity {
         Picasso.get().load(movie.getBigPosterPath()).into(imageViewBigPoster);
         textViewTitle.setText(movie.getTitle());
         textViewOriginalTitle.setText(movie.getOriginal_title());
-        textViewRating.setText(Double.toString(movie.getVote_average()));
+        textViewRating.setText(movie.getVote_average() + "");
         textViewReleaseDate.setText(movie.getReleaseDate());
         textViewOverview.setText(movie.getOverview());
         setFavourite();
@@ -84,12 +90,13 @@ public class DetailActivity extends AppCompatActivity {
                 startActivity(intentToTrailer);
             }
         });
-        JSONObject jsonObjectTrailers = NetworkUtils.getJsonForVideos(movie.getId());
-        JSONObject jsonObjectReviews = NetworkUtils.getJsonForReviews(movie.getId());
+        JSONObject jsonObjectTrailers = NetworkUtils.getJsonForVideos(movie.getId(),language);
+        JSONObject jsonObjectReviews = NetworkUtils.getJsonForReviews(movie.getId(),language);
         ArrayList<Trailer> trailers = JSONUtils.getTrailersFromJSON(jsonObjectTrailers);
         ArrayList<Review> reviews = JSONUtils.getReviewsFromJSON(jsonObjectReviews);
         reviewAdapter.setReviews(reviews);
         trailerAdapter.setTrailers(trailers);
+        scrollViewInfo.smoothScrollTo(0,0);
     }
 
     @Override
@@ -123,6 +130,7 @@ public class DetailActivity extends AppCompatActivity {
         buttonAddToFavourite = findViewById(R.id.buttonAddToFavourite);
         recyclerViewReviews = findViewById(R.id.recyclerViewReviews);
         recyclerViewTrailers = findViewById(R.id.recyclerViewTrailers);
+        scrollViewInfo = findViewById(R.id.scrollviewInfo);
         trailerAdapter = new TrailerAdapter();
         reviewAdapter = new ReviewAdapter();
         viewModel = new ViewModelProvider(DetailActivity.this,null).get(MainViewModel.class);
